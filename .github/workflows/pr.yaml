@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Notify Teams
-      uses: aliencube/action-msteams-notify@v1
+      uses: Skitionek/notify-microsoft-teams@v1.0.8
       with:
         webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI }}
         title: "New Pull Request"
