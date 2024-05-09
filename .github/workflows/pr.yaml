@@ -13,3 +13,4 @@ jobs:
       with:
         webhook_url: ${{ secrets.TEAMS_WEBHOOK_URI }}
         raw: '{"title": "Ваш заголовок", "text": "Ваше сообщение"}'
+        summary: "There is a new pull request in the repo!"
