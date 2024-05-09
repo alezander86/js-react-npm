@@ -12,6 +12,5 @@ jobs:
       uses: Skitionek/notify-microsoft-teams@v1.0.8
       with:
         webhook_url: ${{ secrets.TEAMS_WEBHOOK_URI }}
-        raw: '{"title": "New Pull Request", "text": "There is a new pull request in the repo!"}'
         title: "New Pull Request"
         summary: "There is a new pull request in the repo!"
