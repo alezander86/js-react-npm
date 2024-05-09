@@ -1,0 +1,16 @@
+name: Notify Microsoft Teams on PR
+
+on:
+  pull_request:
+    types: [opened, reopened, closed]
+
+jobs:
+  notification:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Notify Teams
+      uses: aliencube/action-msteams-notify@v1
+      with:
+        webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI }}
+        title: "New Pull Request"
+        summary: "There is a new pull request in the repo!"
