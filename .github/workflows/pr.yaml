@@ -8,7 +8,33 @@ jobs:
   notification:
     runs-on: ubuntu-latest
     steps:
-    - name: Notify Teams
-      uses: Skitionek/notify-microsoft-teams@v1.0.8
-      with:
-          raw: > { "@type": "MessageCard", "@context": "http://schema.org/extensions", "themeColor": "0076D7", "summary": "New Pull Request", "sections": [ { "activityTitle": "A new pull request has been opened.", "activitySubtitle": "Please review the new pull request.", "markdown": true } ], "potentialAction": [ { "@type": "OpenUri", "name": "View Pull Request", "targets": [ { "os": "default", "uri": "${{ github.event.pull_request.html_url }}" } ] } ] }
+      - name: Notify Teams
+        uses: Skitionek/notify-microsoft-teams@v1.0.8
+        with:
+          webhook_url: ${{ secrets.TEAMS_WEBHOOK_URI }}
+          raw: >-
+            {
+              "@type": "MessageCard",
+              "@context": "http://schema.org/extensions",
+              "themeColor": "0076D7",
+              "summary": "New Pull Request",
+              "sections": [
+                {
+                  "activityTitle": "A new pull request has been opened.",
+                  "activitySubtitle": "Please review the new pull request.",
+                  "markdown": true
+                }
+              ],
+              "potentialAction": [
+                {
+                  "@type": "OpenUri",
+                  "name": "View Pull Request",
+                  "targets": [
+                    {
+                      "os": "default",
+                      "uri": "${{ github.event.pull_request.html_url }}"
+                    }
+                  ]
+                }
+              ]
+            }
