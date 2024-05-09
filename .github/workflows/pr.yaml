@@ -5,11 +5,13 @@ on:
     types: [opened, reopened, closed]
 
 jobs:
-  notify:
+  notification:
     runs-on: ubuntu-latest
     steps:
-      - name: Notify Microsoft Teams
-        uses: Skitionek/notify-microsoft-teams@v1.0.8
-        with:
-          webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
-          raw: > { "@type": "MessageCard", "@context": "http://schema.org/extensions", "themeColor": "0076D7", "summary": "New Pull Request", "sections": [{ "activityTitle": "Новый Pull Request", "activitySubtitle": "Пожалуйста, ознакомьтесь с PR.", "markdown": true }], "potentialAction": [{ "@type": "OpenUri", "name": "Посмотреть PR", "targets": [ { "os": "default", "uri": "${{ github.event.pull_request.html_url }}" } ] }] }
+    - name: Notify Teams
+      uses: Skitionek/notify-microsoft-teams@v1.0.8
+      with:
+        webhook_url: ${{ secrets.TEAMS_WEBHOOK_URI }}
+        raw: '{"title": "New Pull Request", "text": "There is a new pull request in the repo!"}'
+        title: "New Pull Request"
+        summary: "There is a new pull request in the repo!"
