@@ -12,4 +12,4 @@ jobs:
         uses: Skitionek/notify-microsoft-teams@v1.0.8
         with:
           webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
-          raw: > { "@type": "MessageCard", "@context": "http://schema.org/extensions", "themeColor": "0076D7", "summary": "new Pull Request", "sections": [{ "activityTitle": "Новый Pull Request", "activitySubtitle": "Пожалуйста, ознакомьтесь с PR.", "markdown": true }], "potentialAction": [{ "@type": "OpenUri", "name": "PR", "targets": [ { "os": "default", "uri": "${{ github.event.pull_request.html_url }}" } ] }] }
+          raw: > { "@type": "MessageCard", "@context": "http://schema.org/extensions", "themeColor": "0076D7", "summary": "New Pull Request", "sections": [{ "activityTitle": "Новый Pull Request", "activitySubtitle": "Пожалуйста, ознакомьтесь с PR.", "markdown": true }], "potentialAction": [{ "@type": "OpenUri", "name": "Посмотреть PR", "targets": [ { "os": "default", "uri": "${{ github.event.pull_request.html_url }}" } ] }] }
