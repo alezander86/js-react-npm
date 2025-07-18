@@ -46,7 +46,7 @@ service:
 
 ingress:
   enabled: false
-  dnsWildcard: eks-sandbox.aws.main.edp.projects.epam.com
+  dnsWildcard:
   className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx

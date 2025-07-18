@@ -6,9 +6,15 @@
     <meta name="theme-color" content="#000000">
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    
+    <!-- SVG favicon для современных браузеров -->
+    <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/krci-logo.svg">
+    <!-- Fallback для старых браузеров -->
+    <link rel="shortcut icon" href="%PUBLIC_URL%/krci-logo.svg">
+    <!-- Альтернативный fallback если нужен ICO -->
+    <link rel="alternate icon" href="%PUBLIC_URL%/favicon.ico">
 
-    <title>Hello, EDP!</title>
+    <title>Hello, KRCI!</title>
   </head>
   <body>
     <noscript>

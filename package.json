@@ -1,12 +1,17 @@
 {
   "name": "hello-world",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "packageManager": "pnpm@8.15.0",
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=8.0.0"
   },
+  "files": [
+    "build/**/*",
+    "README.md",
+    "package.json"
+  ],
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -25,7 +30,8 @@
     "flow": "flow",
     "flow:check": "pnpm exec flow check",
     "prepare:artifacts": "pnpm run build:prod",
-    "prepare:validate": "pnpm run test:coverage"
+    "prepare:validate": "pnpm run test:coverage",
+    "prepare:publish": "echo 'Publishing with pnpm'"
   },
   "eslintConfig": {
     "extends": [
