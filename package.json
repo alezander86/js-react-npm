@@ -1,6 +1,11 @@
 {
   "name": "hello-world",
   "version": "0.1.0",
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "dependencies": {
     "flow-bin": "^0.188.1",
     "react": "^18.2.0",
@@ -12,9 +17,23 @@
     "start": "react-scripts start",
     "build:clean": "react-scripts build",
     "build:prod": "react-scripts build",
-    "test:coverage": "echo Mock stage test:coverage",
+    "test:coverage": "CI=true react-scripts test --coverage --watchAll=false --testPathIgnorePatterns=node_modules",
+    "prepare:artifacts": "pnpm run build:prod",
+    "prepare:validate": "pnpm run test:coverage && pnpm run flow:check",
     "eject": "react-scripts eject",
     "install-types": "echo Mock stage install-types",
     "flow:check": "node node_modules/flow-bin/cli.js check"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
